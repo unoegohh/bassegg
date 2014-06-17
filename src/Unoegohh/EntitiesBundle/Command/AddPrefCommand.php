@@ -33,6 +33,7 @@ class AddPrefCommand extends ContainerAwareCommand
             $pref->setPhone("Change Me!!!");
             $pref->setEmail("Change Me!!!");
             $pref->setSign("Change Me!!!");
+            $pref->setAddress("Change Me!!!");
             $pref->setActive(true);
 
             $em->persist($pref);
