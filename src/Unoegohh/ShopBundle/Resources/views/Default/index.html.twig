@@ -1,0 +1,377 @@
+
+<!DOCTYPE HTML>
+<html ng-app="myApp" >
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <title>{% block title %}Главная страница{% endblock %}</title>
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="/theme/css/style.css" media="screen" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        scart = {% if app.session.get('cart') %}{{ app.session.get('cart') |raw }}{% else %}{"items": []}{% endif %};
+    </script>
+    <link rel="stylesheet" href="/theme/growl/growl.css"/>
+    <script src="/theme/js/angular.min.js"></script>
+    <script type="text/javascript" src="/theme/growl/growl.js"></script>
+    <script type="text/javascript" src="/theme/growl/growlFactory.js"></script>
+    <script type="text/javascript" src="/theme/growl/growlDirective.js"></script>
+    <script src="/theme/js/angular-animate.min.js"></script>
+    <script src="/theme/js/app.js"></script>
+    <script src="/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="/theme/js/html5.js"></script>
+
+    <script src="/theme/js/main.js"></script>
+    <script src="/theme/js/jquery.carouFredSel-6.2.0-packed.js"></script>
+    <script src="/theme/js/jquery.touchSwipe.min.js"></script>
+    <script src="/theme/js/checkbox.js"></script>
+    <script src="/theme/js/radio.js"></script>
+    <script src="/theme/js/selectBox.js"></script>
+    <script src="/theme/js/jquery.jqzoom-core.js"></script>
+</head>
+<body ng-controller="DefaultController">
+<div class="container_12">
+    <div id="top">
+        <div class="grid_3 ">
+            <div class="phone_top">
+                <span>Тел: {{ pref().phone }}</span>
+            </div><!-- .phone_top -->
+        </div><!-- .grid_3 -->
+
+        <div class="grid_6">
+            {#<div class="welcome">#}
+                {#Welcome visitor you can <a href="/login.html">login</a> or <a href="/login.html">create an account</a>.#}
+            {#</div><!-- .welcome -->#}
+        </div><!-- .grid_6 -->
+
+        <div class="grid_3">
+            <div class="valuta">
+                {#<ul>#}
+                    {#<li class="curent"><a href="#">$</a></li>#}
+                    {#<li><a href="#">&#8364;</a></li>#}
+                    {#<li><a href="#">&#163;</a></li>#}
+                {#</ul>#}
+            </div><!-- .valuta -->
+
+            <div class="lang">
+                {#<ul>#}
+                    {#<li class="curent"><a href="#">EN</a></li>#}
+                    {#<li><a href="#">FR</a></li>#}
+                    {#<li><a href="#">GM</a></li>#}
+                {#</ul>#}
+            </div><!-- .lang -->
+        </div><!-- .grid_3 -->
+    </div><!-- #top -->
+
+    <div class="clear"></div>
+
+    <header id="branding">
+        <div class="grid_3">
+            <hgroup>
+                <h1 id="site_logo" ><a href="/" title=""><img src="/theme/images/logo.png" alt="Online Store Theme Logo"/></a></h1>
+                <h2 id="site_description">Online Store Theme</h2>
+            </hgroup>
+        </div><!-- .grid_3 -->
+
+        <div class="grid_3">
+            <form class="search" action="{{ path('unoegohh_shop_search') }}">
+                <input type="text" name="search" class="entry_form" value="" placeholder="Поиск товаров"/>
+            </form>
+        </div><!-- .grid_3 -->
+
+        <div class="grid_6">
+            <ul id="cart_nav">
+                <li>
+                    <a class="cart_li" href="{{ path('unoegohh_shop_cart') }}">Корзина <span>[[ totalCart ]]  руб</span></a>
+                    <ul class="cart_cont" ng-show="totalCart">
+                        <li class="no_border"><p>Добавленные товары</p></li>
+                        <li ng-repeat="item in cart.items">
+                            <a href="/item/[[ item.id ]]" class="prev_cart"><div class="cart_vert"><img ng-src="[[ item.image ]]" alt="" title="" /></div></a>
+                            <div class="cont_cart">
+                                <h4>[[item.name]]</h4>
+                                <div class="price">[[item.count]] x [[item.price ]] руб</div>
+                            </div>
+                            <a title="close" class="close" href="#" ng-click="deleteOne($index)"></a>
+                            <div class="clear"></div>
+                        </li>
+                        <li class="no_border">
+                            <a href="{{ path('unoegohh_shop_cart') }}" class="view_cart">Просмотреть корзину</a>
+                            <a href="{{ path('unoegohh_shop_cash_order') }}" class="checkout">Оформить заказ</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <nav class="private">
+                <ul>
+                    <li><a href="{{ path('unoegohh_shop_contact') }}">Обратная связь</a></li>
+                    {#<li class="separator">|</li>#}
+                    {#<li><a href="#">My Wishlist</a></li>#}
+                    {#<li class="separator">|</li>#}
+                    {#<li><a href="/login.html">Log In</a></li>#}
+                    {#<li class="separator">|</li>#}
+                    {#<li><a href="/login.html">Sign Up</a></li>#}
+                </ul>
+            </nav><!-- .private -->
+        </div><!-- .grid_6 -->
+    </header><!-- #branding -->
+</div><!-- .container_12 -->
+
+<div class="clear"></div>
+
+<div id="block_nav_primary">
+    <div class="container_12">
+        <div class="grid_12">
+            {{ render(controller('UnoegohhShopBundle:Render:menu')) }}
+
+        </div><!-- .grid_12 -->
+    </div><!-- .container_12 -->
+</div><!-- .block_nav_primary -->
+
+<div class="clear"></div>
+
+{% block main %}
+{% if banners %}
+<div class="container_12">
+    <div class="grid_12">
+        <div class="slidprev"><span>Prev</span></div>
+        <div class="slidnext"><span>Next</span></div>
+
+
+        <div id="slider">
+            {% for banner in banners %}
+            <div class="slide">
+                <a href="{{ banner.url }}">
+                <img src="{{ banner.getImageUrl }}" alt="" title="" />
+                <div class="slid_text">
+                    <h3 class="slid_title"><span>{{ banner.name }}</span></h3>
+                    <p><span>{{ banner.descr }}</span></p>
+                </div>
+                </a>
+            </div>
+            {% endfor %}
+
+        </div><!-- .slider -->
+        <div class="clear"></div>
+
+        <div id="myController">
+            {% for banner in banners %}
+            <div class="control"><span>{{ loop.index }}</span></div>
+            {% endfor %}
+        </div>
+
+    </div><!-- .grid_12 -->
+</div><!-- .container_12 -->
+{% endif %}
+
+<div class="clear"></div>
+
+<section id="main" class="home">
+<div class="container_12">
+{#<div id="top_button">#}
+    {#<div class="grid_4">#}
+        {#<a href="#" class="button_block best_price">#}
+            {#<img src="images/banner1.png" alt="Banner 1"/>#}
+        {#</a><!-- .best_price -->#}
+    {#</div><!-- .grid_4 -->#}
+
+    {#<div class="grid_4">#}
+        {#<a href="#" class="button_block new_smells">#}
+            {#<img src="images/banner2.png" alt="Banner 2"/>#}
+        {#</a><!-- .new smells -->#}
+    {#</div><!-- .grid_4 -->#}
+
+    {#<div class="grid_4">#}
+        {#<a href="#" class="button_block only_natural">#}
+            {#<img src="images/banner3.png" alt="Banner 3"/>#}
+        {#</a><!-- .only_natural -->#}
+    {#</div><!-- .grid_4 -->#}
+
+    {#<div class="clear"></div>#}
+{#</div><!-- #top_button -->#}
+
+{#<div class="clear"></div>#}
+
+{% if products %}
+<div class="carousel">
+    <div class="c_header">
+        <div class="grid_10">
+            <h2>Лучшие товары</h2>
+        </div><!-- .grid_10 -->
+
+        <div class="grid_2">
+            <a id="next_c1" class="next arows" href="#"><span>Next</span></a>
+            <a id="prev_c1" class="prev arows" href="#"><span>Prev</span></a>
+        </div><!-- .grid_2 -->
+    </div><!-- .c_header -->
+
+    <div class="list_carousel">
+
+        <ul id="list_product" class="list_product">
+            {% for product in products %}
+                <li class="">
+                    <div class="grid_3 product">
+                        {% if product.sale %}
+                            <img class="sale" src="/theme/images/sale.png" alt="Sale"/>
+                        {% endif %}
+                        <div class="prev">
+                            <a href="{{ path('unoegohh_shop_item', {'id': product.id}) }}"><img src="{{ product.photos[0].url }}" alt="" title="" /></a>
+                        </div><!-- .prev -->
+                        <h3 class="title">{{ product.name }}</h3>
+                        <div class="cart">
+                            <div class="price">
+                                <div class="vert">
+                                    {% if product.getSalePrice %}
+                                        <div class="price_old">{{ product.getSalePrice }} руб.</div>
+                                    {% endif %}
+                                    <div class="price_new">{{ product.price }} руб.</div>
+                                </div>
+                            </div>
+                            <a href="#" class="bay"  ng-click="addToCart({{ product.id }}, {{ product.price }},count,'{{ product.name }}', '{{ product.photos[0].url }}')"></a>
+                        </div><!-- .cart -->
+                    </div><!-- .grid_3 -->
+                </li>
+            {% endfor %}
+
+        </ul><!-- #list_product -->
+    </div><!-- .list_carousel -->
+</div><!-- .carousel -->
+{% endif %}
+
+{#<div id="content_bottom">#}
+    {#<div class="grid_4">#}
+        {#<div class="bottom_block about_as">#}
+            {#<h3>About Us</h3>#}
+            {#<p>A block of text is a stack of line boxes. In the case of 'left', 'right' and 'center', this property specifies how the inline-level boxes within each line box align with respect to the line box's </p>#}
+            {#<p>Alignment is not with respect to the viewport. In the case of 'justify', this property specifies that the inline-level boxes are to be made flush with both sides of the line box if possible.</p>#}
+            {#<p>by expanding or contracting the contents of inline boxes, else aligned as for the initial value.</p>#}
+        {#</div><!-- .about_as -->#}
+    {#</div><!-- .grid_4 -->#}
+
+    {#<div class="grid_4">#}
+        {#<div class="bottom_block news">#}
+            {#<h3>News</h3>#}
+            {#<ul>#}
+                {#<li>#}
+                    {#<time datetime="2012-03-03">3 january 2012</time>#}
+                    {#<a href="#">A block of text is a stack of line boxes. In the case of 'left', 'right' and 'center', this property specifies</a>#}
+                {#</li>#}
+
+                {#<li>#}
+                    {#<time datetime="2012-02-03">2 january 2012</time>#}
+                    {#<a href="#">A block of text is a stack of line boxes. In the case of 'left', 'right' and 'center', this property specifies</a>#}
+                {#</li>#}
+
+                {#<li>#}
+                    {#<time datetime="2012-01-03">1 january 2012</time>#}
+                    {#<a href="#">A block of text is a stack of line boxes. In the case of 'left', 'right' and 'center', this property specifies how the inline-level boxes within each line</a>#}
+                {#</li>#}
+            {#</ul>#}
+        {#</div><!-- .news -->#}
+    {#</div><!-- .grid_4 -->#}
+
+    {#<div class="grid_4">#}
+        {#<div class="bottom_block newsletter">#}
+            {#<h3>Newsletter</h3>#}
+            {#<p>Cursus in dapibus ultrices velit fusce. Felis lacus erat. Fermentum parturient lacus tristique habitant nullam morbi et odio nibh mus dictum tellus erat.</p>#}
+            {#<form class="letter_form">#}
+                {#<input type="email" name="newsletter" class="l_form" value="" placeholder="Enter your email address..."/>#}
+                {#<input type="submit" id="submit" value="" />#}
+            {#</form>#}
+            {#<div class="lettel_description">#}
+                {#Vel lobortis gravida. Cursus in dapibus ultrices velit fusce. Felis lacus erat.#}
+            {#</div><!-- .lettel_description -->#}
+        {#</div><!-- .newsletter -->#}
+    {#</div><!-- .grid_4 -->#}
+
+    {#<div class="clear"></div>#}
+{#</div><!-- #content_bottom -->#}
+{#<div class="clear"></div>#}
+
+
+</div><!-- .container_12 -->
+</section><!-- #main -->
+
+{% endblock %}
+
+<div class="clear"></div>
+
+<footer>
+    <div class="f_navigation">
+        <div class="container_12">
+            <div class="grid_3">
+                <h3>Контакты</h3>
+                <ul class="f_contact">
+                    <li>{{ pref().address }}</li>
+                    <li>{{ pref().phone }}</li>
+                    <li>{{ pref().email }}</li>
+                </ul><!-- .f_contact -->
+            </div><!-- .grid_3 -->
+
+            <div class="grid_3">
+                <h3>Information</h3>
+                <nav class="f_menu">
+                    <ul>
+                        <li><a href="#">About As</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Secure payment</a></li>
+                    </ul>
+                </nav><!-- .private -->
+            </div><!-- .grid_3 -->
+
+            <div class="grid_3">
+                <h3>Costumer Servise</h3>
+                <nav class="f_menu">
+                    <ul>
+                        <li><a href="/contact_us.html">Contact As</a></li>
+                        <li><a href="#">Return</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Site Map</a></li>
+                    </ul>
+                </nav><!-- .private -->
+            </div><!-- .grid_3 -->
+
+            <div class="grid_3">
+                <h3>My Account</h3>
+                <nav class="f_menu">
+                    <ul>
+                        <li><a href="#">My Account</a></li>
+                        <li><a href="#">Order History</a></li>
+                        <li><a href="#">Wish List</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </nav><!-- .private -->
+            </div><!-- .grid_3 -->
+
+            <div class="clear"></div>
+        </div><!-- .container_12 -->
+    </div><!-- .f_navigation -->
+
+    <div class="f_info">
+        <div class="container_12">
+            <div class="grid_6">
+                <p class="copyright">{{ pref().sign }}</p>
+            </div><!-- .grid_6 -->
+
+            {#<div class="grid_6">#}
+                {#<div class="soc">#}
+                    {#<a class="google" href="#"></a>#}
+                    {#<a class="twitter" href="#"></a>#}
+                    {#<a class="facebook" href="#"></a>#}
+                {#</div><!-- .soc -->#}
+            {#</div><!-- .grid_6 -->#}
+
+            <div class="clear"></div>
+        </div><!-- .container_12 -->
+    </div><!-- .f_info -->
+</footer>
+
+<div growl></div>
+</body>
+</html>

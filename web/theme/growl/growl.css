@@ -1,0 +1,62 @@
+.growl {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    float: right;
+    width: 250px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.growl-item.ng-enter,
+.growl-item.ng-leave {
+    -webkit-transition:0.5s linear all;
+    -moz-transition:0.5s linear all;
+    -o-transition:0.5s linear all;
+    transition:0.5s linear all;
+}
+
+.growl-item.ng-enter,
+.growl-item.ng-leave.ng-leave-active {
+    opacity:0;
+}
+.growl-item.ng-leave,
+.growl-item.ng-enter.ng-enter-active {
+    opacity:1;
+
+}
+.growl .alert-info {
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    color: #31708f;
+}
+.growl .alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.growl .alert .close {
+    position: relative;
+    top: -2px;
+    right: -6px;
+    line-height: 20px;
+}
+.growl button.close {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+}
+.growl .close {
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #000000;
+    text-shadow: 0 1px 0 #ffffff;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
