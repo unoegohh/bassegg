@@ -13,11 +13,12 @@ class DefaultController extends Controller
 
         $banners  = $em->getRepository("UnoegohhEntitiesBundle:MainBanner")->findBy(array('active' => true), array('orderNum' => 'DESC'));
         $products = $em->getRepository("UnoegohhEntitiesBundle:Item")->findBy(array('main_page'=>true),array());
+        return $this->render('UnoegohhShopBundle:New:index.html.twig');
 
-        return $this->render('UnoegohhShopBundle:Default:index.html.twig', array(
-            'banners' => $banners,
-            'products' => $products
-        ));
+//        return $this->render('UnoegohhShopBundle:Default:index.html.twig', array(
+//            'banners' => $banners,
+//            'products' => $products
+//        ));
     }
     public function contactAction(Request $request)
     {

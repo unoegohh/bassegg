@@ -1,0 +1,189 @@
+@font-face {
+    font-family: decida;
+    src: url(/decimanovapro.ttf);
+}@font-face {
+    font-family: decidaL;
+    src: url(/decimanovaprolight.ttf);
+}
+body {
+    background: #000000;
+    margin: 0;
+    font-family: "decidaL", Sans-Serif;
+    padding: 0;
+}
+html {
+     background: #000000;
+ }
+header{
+    background: url(/images/header.png) center center;
+    border-bottom: 8px solid #ef5621;
+    color: #ffffff;
+}
+header:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.main_wrapper {
+    width: 1100px;
+    margin: 0 auto;
+}
+header .main_wrapper, footer .main_wrapper {
+    height: 160px;
+}
+#logo_wrapper {
+    width: 170px;
+    float: left;
+}
+#logo_wrapper a {
+    width: 120px;
+    height: 90px;
+    display: block;
+    background: url("/logo.png") center center;
+    margin: 30px 0 0 0 ;
+}
+header .divider {
+    float: left;
+    width: 1px;
+    height: 60px;
+    margin: 70px 0 0 0;
+    background: #aaaaaa;
+}
+#header_text{
+    width: 270px;
+    font-size: 14px;
+    float: left;
+    padding: 75px 0 0 55px;
+}
+#header_phone {
+    padding: 67px 0 0 70px;
+    width: 350px;
+    font-size: 24px;
+    float: left;
+}
+.icon {
+    background: url("/images/sprite.png") no-repeat;
+    position: relative;
+    display: inline-block;
+}
+.header_phone_icon {
+    width: 19px;
+    height: 25px;
+}
+.mail_icon {
+    width: 27px;
+    height: 18px;
+    background-position: 0 -38px;
+}
+.geo_icon {
+    width: 16px;
+    height: 23px;
+    background-position: 0 -57px;
+}
+.vk_icon {
+    width: 15px;
+    height: 9px;
+    background-position: -2px -27px;
+}
+.insta_icon {
+    width: 13px;
+    height: 13px;
+    background-position: -19px 0;
+}
+header .header_phone_icon{
+    top: 4px;
+    margin: 0 15px 0 0;
+}
+#main_banner{
+    text-align: center;
+}
+.white_content {
+    background: #f0f0f0;
+    color:#454140;
+    font-size: 20px;
+    border-top: 1px solid #e7e7e7;
+}
+.white_content .divider{
+    width: 749px;
+    height: 3px;
+    background: url("/images/devider_line.png") left top;
+    margin: 0 auto;
+}
+.white_content h1{
+    font-size: 55px;
+    font-weight: lighter;
+    font-family: "decidaL", sans-serif;
+}
+.center {text-align: center}
+.main_button {
+    color:white;
+    display: inline-block;
+    background: #454141;
+    font-size: 35px;
+    padding: 9px 15px 5px;
+    text-decoration: none;
+    line-height: 43px;
+    border-radius: 10px;
+
+}
+footer {
+    background: url(/images/header.png) center center;
+    border-top: 8px solid #ef5621;
+    color: #ffffff;
+}
+#footer_contacts {
+    float: left;
+    width: 271px;
+    padding: 30px 30px 0 295px;
+}
+#footer_contacts p {
+    margin: 5px 0;
+    height: 30px;
+    line-height: 30px;
+    padding: 0  0 0 40px;
+    position: relative;
+}
+#footer_contacts p i{
+    position: absolute;
+    left: 0;
+}
+#footer_contacts .header_phone_icon {
+    top: 0px;
+    margin: 0 13px 0 4px;
+}
+#footer_contacts .mail_icon {
+    top: 2px;
+    margin: 0 10px 0 0;
+}
+#footer_contacts .geo_icon {
+    top: 2px;
+    margin: 0 15px 0 6px;
+}
+footer .divider {
+    float: left;
+    width: 1px;
+    height: 100px;
+    margin: 30px 0 0 0;
+    background: #aaaaaa;
+}
+#footer_icons {
+    float: left;
+    padding: 60px 0 0 30px;
+}
+#footer_icons a{
+    display: block;
+    width: 33px;
+    height: 33px;
+    background:#ef5521;
+    float: left;
+    margin: 0 10px 0 0;
+    border-radius: 17px;
+    text-align: center;
+    vertical-align: middle;
+}
+#footer_icons .vk_icon{
+    top: 7px;
+}
+#footer_icons .insta_icon{
+    top: 8px;
+}

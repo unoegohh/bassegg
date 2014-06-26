@@ -13,8 +13,8 @@ framework:
 
 swiftmailer:
     transport:  gmail
-    username:   edasvoya
-    password:   wsadwsad
+    username:   techartstore@gmail.com
+    password:   techart2014
     host: smtp.gmail.com
 
 doctrine:
