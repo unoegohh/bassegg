@@ -15,7 +15,7 @@ html {
      background: #000000;
  }
 header{
-    background: url(/images/header.png) center center;
+    background: url(/images/header.png) center center no-repeat;
     border-bottom: 8px solid #ef5621;
     color: #ffffff;
 }
@@ -96,6 +96,8 @@ header .header_phone_icon{
 }
 #main_banner{
     text-align: center;
+    background: url(/images/main_banner.png) no-repeat center center;
+    height: 616px;
 }
 .white_content {
     background: #f0f0f0;
@@ -127,7 +129,7 @@ header .header_phone_icon{
 
 }
 footer {
-    background: url(/images/header.png) center center;
+    background: url(/images/header.png) center center no-repeat;
     border-top: 8px solid #ef5621;
     color: #ffffff;
 }
