@@ -1,10 +1,15 @@
-/*@font-face {*/
-    /*font-family: decida;*/
-    /*src: url(/decimanovapro.ttf);*/
-/*}@font-face {*/
-    /*font-family: decidaL;*/
-    /*src: url(/decimanovaprolight.ttf);*/
-/*}*/
+@font-face {
+    font-family: decida;
+    src: url(/decimanovapro.ttf);
+}@font-face {
+    font-family: decidaL;
+    src: url(/decimanovaprolight.ttf);
+}
+@media screen and (max-device-width: 480px){
+    body{
+        -webkit-text-size-adjust: none;
+    }
+}
 body {
     background: #000000;
     margin: 0;
@@ -102,7 +107,7 @@ header .header_phone_icon{
 .white_content {
     background: #f0f0f0;
     color:#454140;
-    font-size: 15px;
+    font-size: 20px;
     border-top: 1px solid #e7e7e7;
 }
 .white_content .divider{
