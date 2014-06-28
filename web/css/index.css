@@ -1,10 +1,10 @@
-@font-face {
-    font-family: decida;
-    src: url(/decimanovapro.ttf);
-}@font-face {
-    font-family: decidaL;
-    src: url(/decimanovaprolight.ttf);
-}
+/*@font-face {*/
+    /*font-family: decida;*/
+    /*src: url(/decimanovapro.ttf);*/
+/*}@font-face {*/
+    /*font-family: decidaL;*/
+    /*src: url(/decimanovaprolight.ttf);*/
+/*}*/
 body {
     background: #000000;
     margin: 0;
