@@ -1,28 +1,21 @@
 <?php
-namespace Unoegohh\AdminBundle\Form;
+namespace Unoegohh\ShopBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Translation\Translator;
 
-class AdminOrder extends AbstractType
+class OrderForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('fio')
-            ->add('descr',"textarea")
             ->add('phone')
-            ->add('email')
-            ->add('status', 'choice',array(
-                'choices' => array(1 => 'Новый', 2 => "Принят", 3 => "Доставлен", 4 => "Отклонен"
-            )))
-            ->add('paymentType', 'choice',array(
-                'choices' => array(1 => 'При получении', 2 => "Картой")
-            ))
-            ->add('address',"textarea")
+            ->add('email', 'email')
             ->add('deliveryType', 'choice',array(
+                'expanded' => true,
                 'multiple' => false,
                 'choices' => array(
                     1 => 'По городу Самаре',
@@ -46,6 +39,6 @@ class AdminOrder extends AbstractType
 
     public function getName()
     {
-        return 'Order';
+        return 'CashOrder';
     }
 }

@@ -26,7 +26,23 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
+
 unoegohh_shop:
     resource: "@UnoegohhShopBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /tmp
 
+unoegohh_shop_temp_index_ru:
+    path:     /
+    defaults: { _controller: UnoegohhShopBundle:Temp:IndexRu}
+
+unoegohh_shop_temp_index_eng:
+    path:     /eng
+    defaults: { _controller: UnoegohhShopBundle:Temp:IndexEng}
+
+unoegohh_shop_temp_cart_ru:
+    path:     /cart
+    defaults: { _controller: UnoegohhShopBundle:Temp:CartRu}
+
+unoegohh_shop_temp_cart_eng:
+    path:     /eng/cart
+    defaults: { _controller: UnoegohhShopBundle:Temp:CartEng}

@@ -33,22 +33,22 @@ class Order
     protected $email;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string" , nullable=true)
      */
     protected $address;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string" , nullable=true)
      */
     protected $totalPrice;
 
     /**
-     * @ORM\Column(type="string", name="order_products")
+     * @ORM\Column(type="string", name="order_products" , nullable=true)
      */
     protected $order;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string" , nullable=true)
      */
     protected $descr;
 
@@ -58,9 +58,14 @@ class Order
     protected $date_created;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer" , nullable=true)
      */
     protected $paymentType;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $deliveryType;
 
     /**
      * @ORM\Column(type="integer")
@@ -241,6 +246,22 @@ class Order
     public function getDateCreated()
     {
         return $this->date_created;
+    }
+
+    /**
+     * @param mixed $deliveryType
+     */
+    public function setDeliveryType($deliveryType)
+    {
+        $this->deliveryType = $deliveryType;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDeliveryType()
+    {
+        return $this->deliveryType;
     }
 
 

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TechArtStore</title>
+    <link rel="stylesheet" href="/css/index.css"/>
+    <meta name="viewport" content="width=1100" />
+</head>
+<body>
+<header>
+    <div class="main_wrapper">
+        <div id="logo_wrapper">
+            <a href="/"></a>
+        </div>
+        <div class="divider"></div>
+        <div id="header_text">
+            <p>Мы продаем не просто электронику, <br/> а искусство современной технологии</p>
+        </div>
+        <div class="divider"></div>
+        <div id="header_phone">
+            <p><i class="header_phone_icon icon"></i>8-800-700-54-58</p>
+        </div>
+        <div class="divider"></div>
+        <div id="lang_change">
+            <a href="{{ path('unoegohh_shop_temp_index_ru') }}" class="active">RU</a>
+            <a href="{{ path('unoegohh_shop_temp_index_eng') }}">EN</a>
+        </div>
+    </div>
+</header>
+
+<div class="super_white_content">
+    <div class="main_wrapper" id="cart_banner">
+
+    </div>
+</div>
+<div class="white_content">
+    <div class="main_wrapper">
+        <h1 class="center">Доставка</h1>
+
+        <form method="POST">
+        <table id="cart_table">
+            <tr>
+                <td colspan="2">
+                    <div class="divider"></div><br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                        Заполните <br/>форму
+                    </p>
+                </td>
+                <td>
+                    {{ form_widget(form.fio, {'attr':{'placeholder': "ФИО"}}) }} <br/>
+                    {{ form_widget(form.phone, {'attr':{'placeholder': "Телефон"}}) }} <br/>
+                    {{ form_widget(form.email, {'attr':{'placeholder': "E-Mail"}}) }} <br/>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="divider"></div><br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                        Выберите <br/>способ доставки
+                    </p>
+                </td>
+                <td>
+                    {{ form_widget(form._token) }}
+                    <h2>1. По городу самара</h2>
+                    <p><label>{{ form_widget( form.deliveryType[0] ) }} Бесплатно</label></p>
+                    <h2>2. По России</h2>
+                    <p><label>{{ form_widget( form.deliveryType[1] ) }} Ems почта России</label></p>
+                    <p><label>{{ form_widget( form.deliveryType[2] ) }} Транспортная компания "Автотрейдинг"</label></p>
+                    <p><label>{{ form_widget( form.deliveryType[3] ) }} Major express</label></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <div class="divider"></div><br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                        Оформите <br/>заказ
+                    </p>
+                </td>
+                <td>
+                    <input type="submit" class="main_button" value="Оформить заказ"/>
+                </td>
+            </tr>
+        </table>
+        </form>
+        <br/><br/>
+    </div>
+</div>
+<footer>
+    <div class="main_wrapper">
+        <div id="footer_contacts">
+            <p><i class="icon header_phone_icon"></i> 8-800-700-54-58</p>
+            <p><i class="icon mail_icon"></i> info@techartstore.ru</p>
+            <p><i class="icon geo_icon"></i> г. Самара, ул. Галактионовская 74</p>
+        </div>
+        <div class="divider"></div>
+        <div id="footer_icons">
+            <a href="https://vk.com/techartstore" target="_blank"><i class="icon vk_icon"></i></a>
+            <a href="http://instagram.com/bass_egg_russia" target="_blank"><i class="icon insta_icon"></i></a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

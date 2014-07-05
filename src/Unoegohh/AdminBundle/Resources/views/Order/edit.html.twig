@@ -28,30 +28,30 @@
                 {% include "UnoegohhAdminBundle:Order:form.html.twig" with {"form" : form} %}
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="block">
-                <div class="block-title">
-                    <h2><strong>Товары</strong></h2>
-                </div>
-                <table class="table">
-                    <tr>
-                        <th>Название</th>
-                        <th>Цена</th>
-                        <th>Кол-во</th>
-                    </tr>
-                    {% for i in order.items %}
-                        <tr>
-                            <td><a href="{{ path('unoegohh_admin_food_item_edit', {"id": i.id}) }}">{{ i.name }}</a></td>
-                            <td>{{ i.price }} руб</td>
-                            <td>{{ i.count }} </td>
-                        </tr>
-                    {% endfor %}
-                    <tr>
-                        <td class="text-right" colspan="2">Итого:</td>
-                        <td><b>{{ item.totalPrice }}</b> руб</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+        {#<div class="col-md-6">#}
+            {#<div class="block">#}
+                {#<div class="block-title">#}
+                    {#<h2><strong>Товары</strong></h2>#}
+                {#</div>#}
+                {#<table class="table">#}
+                    {#<tr>#}
+                        {#<th>Название</th>#}
+                        {#<th>Цена</th>#}
+                        {#<th>Кол-во</th>#}
+                    {#</tr>#}
+                    {#{% for i in order.items %}#}
+                        {#<tr>#}
+                            {#<td><a href="{{ path('unoegohh_admin_food_item_edit', {"id": i.id}) }}">{{ i.name }}</a></td>#}
+                            {#<td>{{ i.price }} руб</td>#}
+                            {#<td>{{ i.count }} </td>#}
+                        {#</tr>#}
+                    {#{% endfor %}#}
+                    {#<tr>#}
+                        {#<td class="text-right" colspan="2">Итого:</td>#}
+                        {#<td><b>{{ item.totalPrice }}</b> руб</td>#}
+                    {#</tr>#}
+                {#</table>#}
+            {#</div>#}
+        {#</div>#}
     </div>
 {% endblock %}

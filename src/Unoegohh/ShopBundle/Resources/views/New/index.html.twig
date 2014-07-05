@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TechArt - Интернет магазин</title>
+        <title>TechArtStore</title>
         <link rel="stylesheet" href="/css/index.css"/>
         <meta name="viewport" content="width=1100" />
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css"/>
+
+        <script type="text/javascript" src="/theme/js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="/fancybox/jquery.fancybox.js"></script>
+        <script>
+            {% for i in app.session.flashbag.get('notice') %}
+                $(function(){
+                    $.fancybox( '<h1>Заказ офрмлен!</h1> <p>тут тукст о том что вам позвонят</p>' );
+                });
+            {% endfor %}
+        </script>
     </head>
     <body>
         <header>
@@ -18,6 +29,11 @@
                 <div class="divider"></div>
                 <div id="header_phone">
                     <p><i class="header_phone_icon icon"></i>8-800-700-54-58</p>
+                </div>
+                <div class="divider"></div>
+                <div id="lang_change">
+                    <a href="{{ path('unoegohh_shop_temp_index_ru') }}" class="active">RU</a>
+                    <a href="{{ path('unoegohh_shop_temp_index_eng') }}">EN</a>
                 </div>
             </div>
         </header>
@@ -42,21 +58,11 @@
                 <p class="center">Полуторочасовая зарядка Bass Egg обеспечивает до 10+ часов постоянного звучания.
                 </p><br/>
                 <div class="divider"></div><br/>
-                <p class="center"><a href="" class="main_button">Успей купить первым!</a></p>
+                <p class="center"><a href="{{ path("unoegohh_shop_temp_cart_ru") }}" class="main_button">Успей купить первым!</a></p>
                 <br/>
                 <p class="center">Официальным дистрибьютором Bass Egg Verb на территории Российской Федерации является компания Tech Art </p>
                 <br/>
             </div>
-        </div>
-        <div class="black_content">
-            <br/>
-            <p class="center"><img src="/images/bass_egg_logo.png" alt=""/></p>
-            <br/>
-            <p class="center">
-                <iframe width="560" height="315" src="//www.youtube.com/embed/iAHuEid-WLQ?rel=0" frameborder="0" allowfullscreen></iframe> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <iframe width="560" height="315" src="//www.youtube.com/embed/3OeoQq40sWk?rel=0" frameborder="0" allowfullscreen></iframe>
-            </p>
-            <br/>
         </div>
         <footer>
             <div class="main_wrapper">

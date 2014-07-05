@@ -58,10 +58,10 @@ header .divider {
     width: 270px;
     font-size: 14px;
     float: left;
-    padding: 75px 0 0 55px;
+    padding: 69px 0 0 55px;
 }
 #header_phone {
-    padding: 67px 0 0 70px;
+    padding: 61px 0 0 70px;
     width: 350px;
     font-size: 24px;
     float: left;
@@ -131,7 +131,7 @@ header .header_phone_icon{
     text-decoration: none;
     line-height: 43px;
     border-radius: 10px;
-
+    border: 0;
 }
 footer {
     background: url(/images/header.png) center center no-repeat;
@@ -193,4 +193,55 @@ footer .divider {
 }
 #footer_icons .insta_icon{
     top: 8px;
+}
+#lang_change {
+    float: left;
+    padding: 85px 0 0 63px;
+}
+#lang_change a{
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    width:32px;
+    height: 32px;
+    background: #e6e9ed;
+    line-height: 34px;
+    text-align: center;
+    font-size: 11px;
+}
+#lang_change a.active {
+    color: white;
+    background: #ef5521;
+}
+.super_white_content {
+    background: white;
+    height: 420px;
+}
+#cart_banner {
+    height: 420px;
+    background: url("/images/cartImage.png") left center no-repeat white;
+}
+#cart_table {
+    display: block;
+    width: 750px;
+    margin: 0 auto;
+}
+#cart_table td:first-child{
+    width: 280px;
+    font-size: 24px;
+}
+#cart_table input[type="text"],  #cart_table input[type="email"]{
+    height: 43px;
+    width: 350px;
+    padding: 0 0 0 35px;
+    font-size: 20px;
+    line-height: 44px;
+    border: 0;
+    border-radius: 6px;
+    margin: 0 0 16px 0;
+}
+#cart_table input[type="radio"] {
+    position: relative;
+    top:-3px;
+    margin: 0 13px 0 0;
 }

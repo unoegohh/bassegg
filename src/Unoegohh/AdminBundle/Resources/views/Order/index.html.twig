@@ -56,8 +56,8 @@
                         <th>Фио</th>
                         <th>Телефон</th>
                         <th>Статус</th>
-                        <th>Тип оплаты</th>
-                        <th>Сумма</th>
+                        {#<th>Тип оплаты</th>#}
+                        {#<th>Сумма</th>#}
                         <th class="text-center">Действия</th>
                     </tr>
                     </thead>
@@ -72,12 +72,12 @@
                                     {1} Новый|{2} Принят|{3} Доставлен|{4} Отклонен
                                 {% endtranschoice %}
                             </td>
-                            <td>
-                                {% transchoice i.paymentType %}
-                                    {1} Наличные|{2} Безнал
-                                {% endtranschoice %}
-                            </td>
-                            <td>{{ i.totalPrice }}</td>
+                            {#<td>#}
+                                {#{% transchoice i.paymentType %}#}
+                                    {#{1} Наличные|{2} Безнал#}
+                                {#{% endtranschoice %}#}
+                            {#</td>#}
+                            {#<td>{{ i.totalPrice }}</td>#}
                             <td class="text-center">
                                 <div class="btn-group">
                                     <a href="{{ path("unoegohh_admin_orders_edit", {"id": i.id}) }}" data-toggle="tooltip" title="" class="btn btn-xs btn-default" data-original-title="Редактирование"><i class="fa fa-pencil"></i></a>
