@@ -61,10 +61,15 @@ header .divider {
     padding: 69px 0 0 55px;
 }
 #header_phone {
-    padding: 61px 0 0 70px;
+    padding: 76px 0 0 70px;
     width: 350px;
     font-size: 24px;
     float: left;
+
+}
+#header_phone p{
+    margin: 0;
+
 }
 .icon {
     background: url("/images/sprite.png") no-repeat;
@@ -138,10 +143,14 @@ footer {
     border-top: 8px solid #ef5621;
     color: #ffffff;
 }
+header .small {
+    font-size: 12px;
+    margin: 0 0 0 36px;
+}
 #footer_contacts {
     float: left;
-    width: 271px;
-    padding: 30px 30px 0 295px;
+    width: 301px;
+    padding: 30px 30px 0 265px;
 }
 #footer_contacts p {
     margin: 5px 0;
@@ -219,7 +228,7 @@ footer .divider {
 }
 #cart_banner {
     height: 420px;
-    background: url("/images/cartImage.png") left center no-repeat white;
+    background: url("/images/cartImage.png") center center no-repeat white;
 }
 #cart_table {
     display: block;
