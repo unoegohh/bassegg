@@ -38,6 +38,18 @@ class TempController extends Controller
             $order->setDateCreated(new \DateTime('now'));
             $em->persist($order);
             $em->flush();
+            $ch = curl_init("http://sms.ru/sms/send");
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, array(
+
+                "api_id"		=>	$this->container->getParameter("phone_api"),
+                "to"			=>	$this->container->getParameter("phone"),
+                "text"		=>"TechArtStore Поступил новый заказ! Id =" . $order->getId()
+
+            ));
+            $body = curl_exec($ch);
+            curl_close($ch);
 
             $this->get('session')->getFlashBag()->add(
                 'notice',

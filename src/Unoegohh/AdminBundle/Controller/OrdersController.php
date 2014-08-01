@@ -23,7 +23,7 @@ class OrdersController extends Controller
 
         $orderRepo = $em->getRepository('UnoegohhEntitiesBundle:Order');
 
-        $orders = $orderRepo->findAll();
+        $orders = $orderRepo->findBy(array(),array("id" => "Asc"));
 
 
         return $this->render('UnoegohhAdminBundle:Order:index.html.twig', array('result'=>$orders));
