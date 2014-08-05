@@ -15,6 +15,13 @@
                     $.fancybox( '<h1>Заказ оформлен!</h1> <p>В ближайшее время с вами свяжутся наши специалисты!</p>' );
                 });
             {% endfor %}
+
+        </script>
+
+        <script type="text/javascript" src="//vk.com/js/api/openapi.js?115"></script>
+
+        <script type="text/javascript">
+            VK.init({apiId: 4492999, onlyWidgets: true});
         </script>
     </head>
     <body>
@@ -46,7 +53,13 @@
         </div>
         <div class="white_content">
             <div class="main_wrapper">
-                <h1 class="center">Bass Egg Verb</h1>
+                <h1 class="center">Bass Egg Verb
+                    <!-- Put this script tag to the <head> of your page -->
+
+                    <!-- Put this div tag to the place, where the Like block will be -->
+                    <div id="vk_like"></div><script type="text/javascript">
+                        VK.Widgets.Like("vk_like", {type: "button"});
+                    </script></h1>
                 <p class="center">
                     Это новейшее изобретение в мире музыки, которое за счет вибрации превращает любую плоскую <br/>
                     поверхность в динамик ( стекло, дерево, скейтборд и даже капот автомобиля).
