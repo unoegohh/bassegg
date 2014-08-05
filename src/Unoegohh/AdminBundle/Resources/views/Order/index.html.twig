@@ -5,12 +5,12 @@
         $(function () {
 
             App.datatables();
-            $('#products').DataTable({
-                "aoColumnDefs": [ { "bSortable": false, "aTargets": [  4] } ],
-                "iDisplayLength": 10,
-                "aLengthMenu": [[10, 20, 30, -1], [10, 20, 30, "All"]]
+            var table = $('#products').DataTable({
+                "order": [[ 2, "desc" ]]
+//                "aoColumnDefs": [ { "bSortable": false, "aTargets": [  4] } ],
+//                "iDisplayLength": 10,
+//                "aLengthMenu": [[10, 20, 30, -1], [10, 20, 30, "All"]]
             });
-
             /* Add Bootstrap classes to select and input elements added by datatables above the table */
             $('.dataTables_filter input').addClass('form-control').attr('placeholder', 'Поиск');
             $('.dataTables_length select').addClass('form-control');
@@ -64,7 +64,7 @@
                     <tbody>
                     {% for i in result %}
                         <tr>
-                            <td class="text-center">{{ i.id }}</td>
+                            <td class="text-center ">{{ i.id }}</td>
                             <td>{{ i.fio }}</td>
                             <td>{{ i.phone }}</td>
                             <td>
